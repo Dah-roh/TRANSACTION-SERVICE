@@ -17,8 +17,8 @@ public class NotificationService {
         WebClient webClient = WebClient.create(url);
         return webClient.post()
                 .uri(uri)
-                .accept(MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .body(Mono.just(emailNotificationRequest), EmailNotificationRequest.class)
                 .retrieve()
                 .bodyToMono(String.class);
     }

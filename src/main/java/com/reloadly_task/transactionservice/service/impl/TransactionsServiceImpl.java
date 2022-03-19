@@ -54,7 +54,7 @@ public class TransactionsServiceImpl implements TransactionsService {
                     "darogadibia@gmail.com",
                     "DEPOSIT SUCCESSFUL",
                     "A successful transaction of N"+transactions.getAmount()
-                            +", has just occurred!"), "http://localhost:9092", "/notification/email");
+                            +", has just occurred!"), url, "/notification/email");
             return transactionRepository.findById(transactions.getId()).get();
         } catch (Exception e) {
             log.info("Deposit failure :" + e.getCause());
@@ -99,7 +99,7 @@ public class TransactionsServiceImpl implements TransactionsService {
                     "darogadibia@gmail.com",
                     "WITHDRAWAL SUCCESSFUL",
                     "A successful transaction of N"+transactions.getAmount()
-                            +", has just occurred!"), "http://localhost:9092", "/notification/email");
+                            +", has just occurred!"), url, "/notification/email");
             return transactionRepository.findById(transactions.getId()).get();
     } catch(Exception e)
 
